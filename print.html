@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stickers</title>
+
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="jquery.min.js"></script>
+    <script src="jquery.fittext.js"></script>
+    <script src="lodash.min.js"></script>
+    <script src="backbone-min.js"></script>
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+  <form id="settings" method="get">
+    <div class="wrapper">
+      <h1>Options</h1>
+
+      <div class="field">
+        <label for="id_columns">Columns</label>
+        <input type="number" id="id_columns" name="columns">
+      </div>
+
+      <div class="field">
+        <label for="id_rows">Rows</label>
+        <input type="number" id="id_rows" name="rows">
+      </div>
+
+      <div class="field">
+        <label for="id_boxfit">Autofit</label>
+        <div class="checkbox">
+          <input type="checkbox" id="id_boxfit" name="boxfit" value="true">
+        </div>
+      </div>
+
+      <button type="submit">Update Layout</button>
+    </div>
+  </form>
+
+  <div id="sheets"></div>
+
+  <div class="controls">
+    <div class="wrapper">
+      <button type="button" class="add-sheet">Add Sheet</button>
+    </div>
+  </div>
+
+  <script id="sheet-template" type="template">
+    <table class="sheet">
+      <% _.forEach(rows, function(col) { %>
+        <tr>
+          <% _.forEach(col, function(name) { %>
+            <td style="width:<%= columnWidth %>;height:<%= rowHeight %>;padding:<%= stickerPadding %>" contenteditable><%= name %></td>
+          <% }); %>
+        </tr>
+      <% }); %>
+    </table>
+  </script>
+</body>

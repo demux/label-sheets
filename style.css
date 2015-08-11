@@ -1,0 +1,150 @@
+@page {
+  margin: 0mm;
+  size: 210mm 297mm;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 210mm;
+  padding: 20px 0;
+}
+
+button {
+  cursor: pointer;
+  background: white;
+  border: 1px solid grey;
+  padding: 4px 10px;
+  font-size: 20px;
+  border-radius: 1px;
+}
+
+#settings {
+  background: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 249px;
+  border-right: 1px solid grey;
+  z-index: 100;
+}
+
+#settings .wrapper {
+  margin: 0;
+  width: auto;
+  padding: 20px;
+}
+
+#settings h1 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.field {
+  margin: 10px 0;
+  height: 24px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.field input[type=number], .field .checkbox {
+  float: right;
+  width: 100px;
+}
+
+.field input[type=number] {
+  height: 24px;
+  font-size: 12px;
+  padding: 4px 6px;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  border-radius: 1px;
+}
+
+.field:after {
+  content: '';
+  float: none;
+  clear: both;
+}
+
+#settings button[type=submit] {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.sheet {
+  overflow: hidden;
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+}
+
+.sheet tr td {
+  outline: 0;
+  vertical-align: middle;
+  text-align: center;
+  /*line-height: 0;*/
+  overflow: hidden;
+}
+
+.sheet tr td span {
+  overflow: hidden;
+}
+
+/*clearfix*/
+.controls:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.controls button {
+  float: right;
+  margin-bottom: 20px;
+}
+
+@media screen {
+  body {
+    background: #efefef;
+    padding: 0 0 0 250px
+  }
+
+  #sheets {
+    margin-top: 20px;
+  }
+
+  .sheet {
+    margin: 20px auto;
+    background: white;
+    border: 1px solid #cccccc;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+    border-collapse: collapse;
+    border: 1px solid white;
+  }
+
+  .sheet tr td {
+    border: 1px solid grey;
+  }
+
+  .sheet tr:first-child td {border-top: 0;}
+  .sheet tr:last-child td {border-bottom: 0;}
+  .sheet tr td:first-child, .sheet tr th:first-child {border-left: 0;}
+  .sheet tr td:last-child, .sheet tr th:last-child {border-right: 0;}
+}
+
+@media print {
+  .controls, #settings {
+    display: none;
+  }
+  .sticker {
+    border: 1px solid #efefef;
+    margin: -1px;
+  }
+}
